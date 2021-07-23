@@ -12,6 +12,14 @@ import installExtension, {
 import { inicializeControllers } from './src'
 import { initializeDatabase } from './src/database'
 
+const SerialPort = require('serialport')
+const Readline = SerialPort.parsers.Readline
+const parser = new Readline()
+
+const mySerial = new SerialPort('COM5', {
+  baudRate: 9600,
+})
+
 let mainWindow: Electron.BrowserWindow | null
 
 async function createWindow() {
@@ -69,5 +77,12 @@ app
         .catch((err) => console.log('An error occurred: ', err))
     }
   })
+
+mySerial.on('data', function (data) {
+  mainWindow.webContents.send(
+    'arduinoCom',
+    data.toString().replace(/[^A-Za-z0-9]+/g, '')
+  )
+})
 
 app.allowRendererProcessReuse = true

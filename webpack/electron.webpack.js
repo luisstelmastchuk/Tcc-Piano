@@ -11,6 +11,7 @@ module.exports = {
   target: 'electron-main',
   externals: {
     knex: 'commonjs knex',
+    serialport: 'commonjs serialport',
     typeorm: 'commonjs typeorm'
   },
   module: {

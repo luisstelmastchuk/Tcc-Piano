@@ -17,7 +17,13 @@ import {
   ContainerFooterInterno1,
 } from './styles'
 
-const Aula: React.FC = (batata) => {
+interface INota {
+  notaArd: string
+}
+
+const Aula: React.FC<INota> = (props) => {
+  const NotaArd = props.notaArd
+
   return (
     <>
       <ContainerHeader>
@@ -26,13 +32,13 @@ const Aula: React.FC = (batata) => {
 
       <ContainerAula>
         <ContainerAulaInterno1>
-          <Partitura nota={''} />
+          <Partitura nota={NotaArd} />
         </ContainerAulaInterno1>
         <ContainerAulaInterno2>
           <Piano />
         </ContainerAulaInterno2>
         <ContainerAulaInterno3>
-          <Piano />
+          <Piano tecla={NotaArd} />
         </ContainerAulaInterno3>
       </ContainerAula>
 

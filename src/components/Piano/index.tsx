@@ -4,11 +4,15 @@ import { PianoStyle } from './styles'
 import Teclas from '../Teclas'
 import { NOTAS } from '../../global/constants'
 
-const Piano: React.FC = () => {
+interface ITeclas {
+  tecla?: string
+}
+
+const Piano: React.FC<ITeclas> = (props) => {
   return (
     <PianoStyle>
       {NOTAS.map((nota) => (
-        <Teclas nota={nota.name} key={nota.key} tecla={nota.key} />
+        <Teclas nota={nota.name} key={nota.key} tecla={props.tecla} />
       ))}
     </PianoStyle>
   )
