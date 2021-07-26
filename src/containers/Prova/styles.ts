@@ -7,27 +7,48 @@ export const ContainerHeader = styled.div`
 export const Texto = styled.h1`
   color: Blue;
 `
-export const ContainerAula = styled.div`
+export const ContainerProva = styled.div`
   text-align: center;
   position: relative;
   padding: 4px;
   left: 15%;
   width: 70%;
 `
-export const ContainerAulaInterno1 = styled.div`
+export const ContainerProvaInterno1 = styled.div`
   position: relative;
   width: auto;
-  height: 200px;
+  height: 50px;
+  width: 60%;
   left: 260px;
   padding-top: 4px;
+  display: flex;
+  flex-direction: row;
 `
-export const ContainerAulaInterno2 = styled.div`
+export const ContainerTimer = styled.div`
+  position: relative;
+  width: 25%;
+  height: 40px;
+  left: 10%;
+  padding-top: 10px;
+  border: 2px solid black;
+  background-color: white;
+`
+export const ContainerScore = styled.div`
+  position: relative;
+  width: 25%;
+  height: 40px;
+  left: 40%;
+  padding-top: 10px;
+  border: 2px solid black;
+  background-color: white;
+`
+export const ContainerProvaInterno2 = styled.div`
   position: relative;
   width: auto;
   left: 260px;
   padding-top: 10px;
 `
-export const ContainerAulaInterno3 = styled.div`
+export const ContainerProvaInterno3 = styled.div`
   position: relative;
   width: auto;
   left: 260px;
@@ -41,13 +62,6 @@ export const ContainerFooter = styled.div`
 export const ContainerFooterInterno1 = styled.div`
   position: relative;
   width: 30%;
-  left: 16%;
-  top: 10px;
-`
-export const ContainerFooterInterno2 = styled.div`
-  position: relative;
-  width: 30%;
-  left: 53%;
-  top: -22px;
+  left: 34.58%;
 `
 export const Botao = styled(Button)``

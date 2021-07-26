@@ -3,6 +3,9 @@ import { Container } from './styles'
 import MenuPrincipal from '../../containers/MenuPrincipal'
 import Piano from '../../components/Piano'
 import Aula from '../../containers/Aulas'
+import ModoLivre from '../../containers/ModoLivre'
+import Prova from '../../containers/Prova'
+import Desafio from '../../containers/Desafio'
 import { ipcRenderer } from 'electron'
 import { sleep } from '../../helper/sleep'
 
@@ -23,7 +26,10 @@ const Home: React.FC = () => {
 
   return (
     <Container>
-      <Aula notaArd={nota} />
+      <Desafio notaArd={nota}></Desafio>
+      {/* <Prova notaArd={nota}></Prova> */}
+      {/* <ModoLivre notaArd={nota}></ModoLivre> */}
+      {/* <Aula notaArd={nota} /> */}
     </Container>
   )
 }
