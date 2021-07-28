@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 // import { Container } from './styles';
 import Piano from '../../components/Piano'
+import PianoAula from '../../components/PianoAula'
 import Partitura from '../../components/Partitura'
+import { AULA1 } from '../../global/constants'
 
 import {
   ContainerHeader,
@@ -24,6 +26,13 @@ interface INota {
 const Aula: React.FC<INota> = (props) => {
   const NotaArd = props.notaArd
 
+  const [aula, setAula] = useState<
+    {
+      id: number
+      sections: string[]
+    }[]
+  >(AULA1)
+
   return (
     <>
       <ContainerHeader>
@@ -32,10 +41,10 @@ const Aula: React.FC<INota> = (props) => {
 
       <ContainerAula>
         <ContainerAulaInterno1>
-          <Partitura nota={NotaArd} />
+          <Partitura />
         </ContainerAulaInterno1>
         <ContainerAulaInterno2>
-          <Piano />
+          <PianoAula teclaArd={NotaArd} />
         </ContainerAulaInterno2>
         <ContainerAulaInterno3>
           <Piano tecla={NotaArd} />

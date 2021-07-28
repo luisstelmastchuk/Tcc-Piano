@@ -3,35 +3,31 @@ import React from 'react'
 import { TeclasStyle, TeclaTexto, TeclaPStyle, TeclaPTexto } from './styles'
 
 interface ITecla {
-  tecla?: string
+  teclaArd?: string
   nota?: string
-  // notaAula: {
-  //   id: number
-  //   sections: string[]
-  // }
+  notaAula?: {
+    id: number
+    sections: string[]
+  }
 }
 
-const Teclas: React.FC<ITecla> = (props) => {
+const TeclasAula: React.FC<ITecla> = (props) => {
   const teclaMenor = props.nota.length > 2 ? true : false
   const teclaNota = props.nota?.toUpperCase()
-  const teclaPressionada = props.tecla?.toUpperCase()
-  const notaAulaX = 'C0'
+  const notaAulaX = ['C0', 'D1', 'A0']
 
-  const notaC =
-    teclaPressionada == teclaNota
-      ? notaAulaX == teclaNota
-        ? 'correto'
-        : 'errado'
-      : 'false'
+  const compararTecla = () => {
+    return notaAulaX.some((notaC) => notaC == teclaNota) ? true : false
+  }
 
   return (
     <>
       {teclaMenor ? (
-        <TeclaPStyle isActived={notaC}>
+        <TeclaPStyle isActived={compararTecla()}>
           <TeclaPTexto>{teclaNota}</TeclaPTexto>
         </TeclaPStyle>
       ) : (
-        <TeclasStyle isActived={notaC}>
+        <TeclasStyle isActived={compararTecla()}>
           <TeclaTexto>{teclaNota}</TeclaTexto>
         </TeclasStyle>
       )}
@@ -39,4 +35,4 @@ const Teclas: React.FC<ITecla> = (props) => {
   )
 }
 
-export default Teclas
+export default TeclasAula

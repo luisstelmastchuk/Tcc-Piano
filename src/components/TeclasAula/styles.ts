@@ -11,7 +11,7 @@ export const TeclaTexto = styled.h5`
 `
 
 interface ITeclaAtiva {
-  isActived?: string
+  isActived?: boolean
 }
 
 export const TeclasStyle = styled.div<ITeclaAtiva>`
@@ -20,15 +20,10 @@ export const TeclasStyle = styled.div<ITeclaAtiva>`
   height: 200px;
   width: 60px;
   ${(props) => {
-    if (props.isActived != 'false') {
-      if (props.isActived == 'correto')
-        return css`
-          background-color: #00ff00;
-        `
-      else
-        return css`
-          background-color: #ff0000;
-        `
+    if (props.isActived) {
+      return css`
+        background-color: #00ffff;
+      `
     }
   }}
 `
@@ -43,15 +38,10 @@ export const TeclaPStyle = styled.div<ITeclaAtiva>`
   z-index: 2;
   border: 2px solid black;
   ${(props) => {
-    if (props.isActived != 'false') {
-      if (props.isActived == 'correto')
-        return css`
-          background-color: #00ff00;
-        `
-      else
-        return css`
-          background-color: #ff0000;
-        `
+    if (props.isActived) {
+      return css`
+        background-color: #00ffff;
+      `
     }
   }}
 `

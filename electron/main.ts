@@ -16,7 +16,7 @@ const SerialPort = require('serialport')
 const Readline = SerialPort.parsers.Readline
 const parser = new Readline()
 
-const mySerial = new SerialPort('COM5', {
+const mySerial = new SerialPort('COM6', {
   baudRate: 9600,
 })
 

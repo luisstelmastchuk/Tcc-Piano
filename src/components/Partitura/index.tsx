@@ -32,7 +32,7 @@ import {
 // import { Container } from './styles';
 
 interface INota {
-  nota: string
+  nota?: string
 }
 
 const Partitura: React.FC<INota> = (props) => {
