@@ -14,7 +14,9 @@ interface ITecla {
 const TeclasAula: React.FC<ITecla> = (props) => {
   const teclaMenor = props.nota.length > 2 ? true : false
   const teclaNota = props.nota?.toUpperCase()
-  const notaAulaX = ['C0', 'D1', 'A0']
+  const notaAulaX = props.notaAula.sections
+
+  console.log(props.notaAula)
 
   const compararTecla = () => {
     return notaAulaX.some((notaC) => notaC == teclaNota) ? true : false

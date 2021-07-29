@@ -20,7 +20,7 @@ import {
 } from './styles'
 
 interface INota {
-  notaArd: string
+  notaArd: string[]
 }
 
 const Aula: React.FC<INota> = (props) => {
@@ -33,6 +33,10 @@ const Aula: React.FC<INota> = (props) => {
     }[]
   >(AULA1)
 
+  const i = 3
+
+  const teste = ['C0', 'G0', 'A0']
+
   return (
     <>
       <ContainerHeader>
@@ -44,10 +48,10 @@ const Aula: React.FC<INota> = (props) => {
           <Partitura />
         </ContainerAulaInterno1>
         <ContainerAulaInterno2>
-          <PianoAula teclaArd={NotaArd} />
+          <PianoAula notaAula={aula[i]} />
         </ContainerAulaInterno2>
         <ContainerAulaInterno3>
-          <Piano tecla={NotaArd} />
+          <Piano tecla={teste} />
         </ContainerAulaInterno3>
       </ContainerAula>
 

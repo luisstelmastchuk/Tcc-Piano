@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { PianoStyle } from './styles'
 import { NOTAS } from '../../global/constants'
@@ -16,7 +16,12 @@ const PianoAula: React.FC<ITeclas> = (props) => {
   return (
     <PianoStyle>
       {NOTAS.map((nota) => (
-        <TeclasAula nota={nota.name} key={nota.key} teclaArd={props.teclaArd} />
+        <TeclasAula
+          nota={nota.name}
+          key={nota.key}
+          teclaArd={props.teclaArd}
+          notaAula={props.notaAula}
+        />
       ))}
     </PianoStyle>
   )
