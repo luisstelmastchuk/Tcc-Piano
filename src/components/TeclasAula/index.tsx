@@ -16,8 +16,6 @@ const TeclasAula: React.FC<ITecla> = (props) => {
   const teclaNota = props.nota?.toUpperCase()
   const notaAulaX = props.notaAula.sections
 
-  console.log(props.notaAula)
-
   const compararTecla = () => {
     return notaAulaX.some((notaC) => notaC == teclaNota) ? true : false
   }

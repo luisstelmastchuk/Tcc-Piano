@@ -33,9 +33,9 @@ const Aula: React.FC<INota> = (props) => {
     }[]
   >(AULA1)
 
-  const i = 3
+  const i = 2
 
-  const teste = ['C0', 'G0', 'A0']
+  const teste = ['EF0', 'G0', 'E1']
 
   return (
     <>
@@ -51,7 +51,7 @@ const Aula: React.FC<INota> = (props) => {
           <PianoAula notaAula={aula[i]} />
         </ContainerAulaInterno2>
         <ContainerAulaInterno3>
-          <Piano tecla={teste} />
+          <Piano tecla={NotaArd} notaAula={aula[i]} />
         </ContainerAulaInterno3>
       </ContainerAula>
 
