@@ -5,6 +5,7 @@ import Piano from '../../components/Piano'
 import PianoAula from '../../components/PianoAula'
 import Partitura from '../../components/Partitura'
 import { AULA1 } from '../../global/constants'
+import { sleep } from '../../helper/sleep'
 
 import {
   ContainerHeader,
@@ -23,6 +24,8 @@ interface INota {
   notaArd: string[]
 }
 
+var contador = 0
+
 const Aula: React.FC<INota> = (props) => {
   const NotaArd = props.notaArd
 
@@ -33,9 +36,19 @@ const Aula: React.FC<INota> = (props) => {
     }[]
   >(AULA1)
 
-  const i = 2
+  const funcaoAula = async () => {
+    if (aula[contador].sections.toString() == NotaArd.toString()) {
+      await sleep(500)
+      contador += 1
+    }
+    if (contador == 4) contador = 0
+  }
 
-  const teste = ['EF0', 'G0', 'E1']
+  funcaoAula()
+
+  console.log(aula[contador].sections.toString())
+  console.log(NotaArd.toString())
+  console.log({ contador })
 
   return (
     <>
@@ -45,13 +58,13 @@ const Aula: React.FC<INota> = (props) => {
 
       <ContainerAula>
         <ContainerAulaInterno1>
-          <Partitura />
+          <Partitura notaAula={aula[contador]} />
         </ContainerAulaInterno1>
         <ContainerAulaInterno2>
-          <PianoAula notaAula={aula[i]} />
+          <PianoAula notaAula={aula[contador]} />
         </ContainerAulaInterno2>
         <ContainerAulaInterno3>
-          <Piano tecla={NotaArd} notaAula={aula[i]} />
+          <Piano tecla={NotaArd} notaAula={aula[contador]} />
         </ContainerAulaInterno3>
       </ContainerAula>
 

@@ -16,8 +16,14 @@ export const PartituraInterno = styled.div`
   border-top: 2px solid black;
 `
 interface INota {
-  isActived?: string
+  isActived?: boolean
 }
+export const PartituraInterno2 = styled.div`
+  background-color: white;
+  position: relative;
+  height: 20px;
+  width: 700px;
+`
 
 export const C0 = styled.div<INota>`
   position: relative;
@@ -29,7 +35,7 @@ export const C0 = styled.div<INota>`
   left: 20px;
   top: 9px;
   ${(props) => {
-    if (props.isActived == 'C0' || props.isActived == 'DF0') {
+    if (props.isActived == true) {
       return css`
         background-color: black;
       `
@@ -43,7 +49,7 @@ export const C01 = styled.div<INota>`
   top: 8px;
   left: -5px;
   ${(props) => {
-    if (props.isActived == 'C0' || props.isActived == 'DF0') {
+    if (props.isActived == true) {
       return css`
         background-color: black;
       `
@@ -60,7 +66,7 @@ export const D0 = styled.div<INota>`
   left: 60px;
   top: -20px;
   ${(props) => {
-    if (props.isActived == 'D0' || props.isActived == 'EF0') {
+    if (props.isActived == true) {
       return css`
         background-color: black;
       `
@@ -77,7 +83,7 @@ export const E0 = styled.div<INota>`
   left: 100px;
   top: -45px;
   ${(props) => {
-    if (props.isActived == 'E0') {
+    if (props.isActived == true) {
       return css`
         background-color: black;
       `
@@ -93,7 +99,7 @@ export const F0 = styled.div<INota>`
   border-radius: 25px;
   left: 140px;
   ${(props) => {
-    if (props.isActived == 'F0' || props.isActived == 'GF0') {
+    if (props.isActived == true) {
       return css`
         background-color: black;
       `
@@ -110,7 +116,7 @@ export const G0 = styled.div<INota>`
   left: 180px;
   top: -27px;
   ${(props) => {
-    if (props.isActived == 'G0' || props.isActived == 'AF0') {
+    if (props.isActived == true) {
       return css`
         background-color: black;
       `
@@ -126,7 +132,7 @@ export const A0 = styled.div<INota>`
   border-radius: 25px;
   left: 220px;
   ${(props) => {
-    if (props.isActived == 'A0' || props.isActived == 'BF0') {
+    if (props.isActived == true) {
       return css`
         background-color: black;
       `
@@ -143,7 +149,7 @@ export const B0 = styled.div<INota>`
   left: 260px;
   top: -27px;
   ${(props) => {
-    if (props.isActived == 'B0') {
+    if (props.isActived == true) {
       return css`
         background-color: black;
       `
@@ -159,7 +165,7 @@ export const C1 = styled.div<INota>`
   border-radius: 25px;
   left: 300px;
   ${(props) => {
-    if (props.isActived == 'C1' || props.isActived == 'DF1') {
+    if (props.isActived == true) {
       return css`
         background-color: black;
       `
@@ -176,7 +182,7 @@ export const D1 = styled.div<INota>`
   left: 340px;
   top: -27px;
   ${(props) => {
-    if (props.isActived == 'D1' || props.isActived == 'EF1') {
+    if (props.isActived == true) {
       return css`
         background-color: black;
       `
@@ -192,7 +198,7 @@ export const E1 = styled.div<INota>`
   border-radius: 25px;
   left: 380px;
   ${(props) => {
-    if (props.isActived == 'E1') {
+    if (props.isActived == true) {
       return css`
         background-color: black;
       `
@@ -209,7 +215,7 @@ export const F1 = styled.div<INota>`
   left: 420px;
   top: -27px;
   ${(props) => {
-    if (props.isActived == 'F1' || props.isActived == 'GF1') {
+    if (props.isActived == true) {
       return css`
         background-color: black;
       `
@@ -225,7 +231,7 @@ export const G1 = styled.div<INota>`
   border-radius: 25px;
   left: 460px;
   ${(props) => {
-    if (props.isActived == 'G1' || props.isActived == 'AF1') {
+    if (props.isActived == true) {
       return css`
         background-color: black;
       `
@@ -242,7 +248,21 @@ export const A1 = styled.div<INota>`
   left: 500px;
   top: -27px;
   ${(props) => {
-    if (props.isActived == 'A1' || props.isActived == 'BF1') {
+    if (props.isActived == true) {
+      return css`
+        background-color: black;
+      `
+    }
+  }};
+`
+export const A11 = styled.div<INota>`
+  position: relative;
+  width: 35px;
+  height: 2px;
+  top: 8px;
+  left: -5px;
+  ${(props) => {
+    if (props.isActived == true) {
       return css`
         background-color: black;
       `
@@ -259,7 +279,21 @@ export const B1 = styled.div<INota>`
   left: 540px;
   top: -55px;
   ${(props) => {
-    if (props.isActived == 'B1') {
+    if (props.isActived == true) {
+      return css`
+        background-color: black;
+      `
+    }
+  }};
+`
+export const B11 = styled.div<INota>`
+  position: relative;
+  width: 35px;
+  height: 2px;
+  top: 8px;
+  left: -5px;
+  ${(props) => {
+    if (props.isActived == true) {
       return css`
         background-color: black;
       `
@@ -273,7 +307,7 @@ export const DF0 = styled.h3<INota>`
   top: -7px;
   color: transparent;
   ${(props) => {
-    if (props.isActived == 'DF0') {
+    if (props.isActived == true) {
       return css`
         color: black;
       `
@@ -287,7 +321,7 @@ export const EF0 = styled.h3<INota>`
   top: -7px;
   color: transparent;
   ${(props) => {
-    if (props.isActived == 'EF0') {
+    if (props.isActived == true) {
       return css`
         color: black;
       `
@@ -301,7 +335,7 @@ export const GF0 = styled.h3<INota>`
   top: -7px;
   color: transparent;
   ${(props) => {
-    if (props.isActived == 'GF0') {
+    if (props.isActived == true) {
       return css`
         color: black;
       `
@@ -315,7 +349,7 @@ export const AF0 = styled.h3<INota>`
   top: -7px;
   color: transparent;
   ${(props) => {
-    if (props.isActived == 'AF0') {
+    if (props.isActived == true) {
       return css`
         color: black;
       `
@@ -329,7 +363,7 @@ export const BF0 = styled.h3<INota>`
   top: -7px;
   color: transparent;
   ${(props) => {
-    if (props.isActived == 'BF0') {
+    if (props.isActived == true) {
       return css`
         color: black;
       `
@@ -343,7 +377,7 @@ export const DF1 = styled.h3<INota>`
   top: -7px;
   color: transparent;
   ${(props) => {
-    if (props.isActived == 'DF1') {
+    if (props.isActived == true) {
       return css`
         color: black;
       `
@@ -357,7 +391,7 @@ export const EF1 = styled.h3<INota>`
   top: -10px;
   color: transparent;
   ${(props) => {
-    if (props.isActived == 'EF1') {
+    if (props.isActived == true) {
       return css`
         color: black;
       `
@@ -371,7 +405,7 @@ export const GF1 = styled.h3<INota>`
   top: -7px;
   color: transparent;
   ${(props) => {
-    if (props.isActived == 'GF1') {
+    if (props.isActived == true) {
       return css`
         color: black;
       `
@@ -385,7 +419,7 @@ export const AF1 = styled.h3<INota>`
   top: -7px;
   color: transparent;
   ${(props) => {
-    if (props.isActived == 'AF1') {
+    if (props.isActived == true) {
       return css`
         color: black;
       `
@@ -399,7 +433,7 @@ export const BF1 = styled.h3<INota>`
   top: -7px;
   color: transparent;
   ${(props) => {
-    if (props.isActived == 'BF1') {
+    if (props.isActived == true) {
       return css`
         color: black;
       `

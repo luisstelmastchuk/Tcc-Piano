@@ -13,11 +13,10 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     ipcRenderer.on('arduinoCom', async (e, arduinoData) => {
-      //setNotasArd([...notasArd, arduinoData])
       setNotas(arduinoData.split('a').filter((nota) => nota != ''))
-      console.log({
-        arduinoData: arduinoData.split('a').filter((nota) => nota != ''),
-      })
+      // console.log({
+      //   arduinoData: arduinoData.split('a').filter((nota) => nota != ''),
+      // })
     })
   }, [])
 
