@@ -19,6 +19,7 @@ const Piano: React.FC<ITeclas> = (props) => {
       {NOTAS.map((nota) => (
         <Teclas
           nota={nota.name}
+          notaNome={nota.key}
           key={nota.key}
           tecla={props.tecla}
           notaAula={props.notaAula}

@@ -5,6 +5,7 @@ import { TeclasStyle, TeclaTexto, TeclaPStyle, TeclaPTexto } from './styles'
 interface ITecla {
   tecla?: string[]
   nota?: string
+  notaNome?: string
   notaAula: {
     id: number
     sections: string[]
@@ -12,6 +13,7 @@ interface ITecla {
 }
 
 const Teclas: React.FC<ITecla> = (props) => {
+  const notaNome = props.notaNome.toUpperCase()
   const teclaMenor = props.nota.length > 2 ? true : false
   const teclaNota = props.nota?.toUpperCase()
   const teclaPressionada = props.tecla
@@ -36,11 +38,11 @@ const Teclas: React.FC<ITecla> = (props) => {
     <>
       {teclaMenor ? (
         <TeclaPStyle isActived={compararTecla()}>
-          <TeclaPTexto>{teclaNota}</TeclaPTexto>
+          <TeclaPTexto>{notaNome}</TeclaPTexto>
         </TeclaPStyle>
       ) : (
         <TeclasStyle isActived={compararTecla()}>
-          <TeclaTexto>{teclaNota}</TeclaTexto>
+          <TeclaTexto>{notaNome}</TeclaTexto>
         </TeclasStyle>
       )}
     </>

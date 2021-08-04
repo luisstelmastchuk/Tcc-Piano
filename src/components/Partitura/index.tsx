@@ -5,31 +5,43 @@ import {
   PartituraInterno2,
   C0,
   C01,
+  DF0,
+  DF01,
+  DFs0,
   D0,
+  EF0,
+  EFs0,
   E0,
   F0,
+  GF0,
+  GFs0,
   G0,
+  AF0,
+  AFs0,
   A0,
+  BF0,
+  BFs0,
   B0,
   C1,
+  DF1,
+  DFs1,
   D1,
+  EF1,
+  EFs1,
   E1,
   F1,
+  GF1,
+  GFs1,
   G1,
+  AF1,
+  AFs1,
   A1,
   A11,
+  BF1,
+  BF11,
+  BFs1,
   B1,
   B11,
-  DF0,
-  EF0,
-  GF0,
-  AF0,
-  BF0,
-  DF1,
-  EF1,
-  GF1,
-  AF1,
-  BF1,
 } from './styles'
 
 // import { Container } from './styles';
@@ -93,53 +105,67 @@ const Partitura: React.FC<INota> = (props) => {
   return (
     <PartituraStyle>
       <PartituraInterno2>
-        <G1 isActived={notaA[19]}>
-          <AF1 isActived={notaA[20]}>#</AF1>
-        </G1>
+        <G1 isActived={notaA[19]}></G1>
+        <AF1 isActived={notaA[20]}>
+          <AFs1 isActived={notaA[20]}>#</AFs1>
+        </AF1>
         <A1 isActived={notaA[21]}>
           <A11 isActived={notaA[21]}></A11>
-          <BF1 isActived={notaA[22]}>#</BF1>
         </A1>
+        <BF1 isActived={notaA[22]}>
+          <BF11 isActived={notaA[22]}></BF11>
+          <BFs1 isActived={notaA[22]}>#</BFs1>
+        </BF1>
         <B1 isActived={notaA[23]}>
           <B11 isActived={notaA[23]}></B11>
         </B1>
       </PartituraInterno2>
       <PartituraInterno>
         <E1 isActived={notaA[16]}></E1>
-        <F1 isActived={notaA[17]}>
-          <GF1 isActived={notaA[18]}>#</GF1>
-        </F1>
+        <F1 isActived={notaA[17]}></F1>]
+        <GF1 isActived={notaA[18]}>
+          <GFs1 isActived={notaA[18]}>#</GFs1>
+        </GF1>
       </PartituraInterno>
       <PartituraInterno>
-        <C1 isActived={notaA[12]}>
-          <DF1 isActived={notaA[13]}>#</DF1>
-        </C1>
-        <D1 isActived={notaA[14]}>
-          <EF1 isActived={notaA[15]}>#</EF1>
-        </D1>
+        <C1 isActived={notaA[12]}></C1>
+        <DF1 isActived={notaA[13]}>
+          <DFs1 isActived={notaA[13]}>#</DFs1>
+        </DF1>
+        <D1 isActived={notaA[14]}></D1>
+        <EF1 isActived={notaA[15]}>
+          <EFs1 isActived={notaA[15]}>#</EFs1>
+        </EF1>
       </PartituraInterno>
       <PartituraInterno>
-        <A0 isActived={notaA[9]}>
-          <BF0 isActived={notaA[10]}>#</BF0>
-        </A0>
+        <A0 isActived={notaA[9]}></A0>
+        <BF0 isActived={notaA[10]}>
+          <BFs0 isActived={notaA[10]}>#</BFs0>
+        </BF0>
         <B0 isActived={notaA[11]}></B0>
       </PartituraInterno>
       <PartituraInterno>
-        <F0 isActived={notaA[5]}>
-          <GF0 isActived={notaA[6]}>#</GF0>
-        </F0>
-        <G0 isActived={notaA[7]}>
-          <AF0 isActived={notaA[8]}>#</AF0>
-        </G0>
+        <F0 isActived={notaA[5]}></F0>
+        <GF0 isActived={notaA[6]}>
+          <GFs0 isActived={notaA[6]}>#</GFs0>
+        </GF0>
+        <G0 isActived={notaA[7]}></G0>
+        <AF0 isActived={notaA[8]}>
+          <AFs0 isActived={notaA[8]}>#</AFs0>
+        </AF0>
       </PartituraInterno>
       <PartituraInterno>
         <C0 isActived={notaA[0]}>
           <C01 isActived={notaA[0]}></C01>
-          <DF0 isActived={notaA[1]}>#</DF0>
         </C0>
-        <D0 isActived={notaA[2]}>
-          <EF0 isActived={notaA[3]}>#</EF0>
-        </D0>
+        <DF0 isActived={notaA[1]}>
+          <DF01 isActived={notaA[1]}></DF01>
+          <DFs0 isActived={notaA[1]}>#</DFs0>
+        </DF0>
+        <D0 isActived={notaA[2]}></D0>
+        <EF0 isActived={notaA[3]}>
+          <EFs0 isActived={notaA[3]}>#</EFs0>
+        </EF0>
         <E0 isActived={notaA[4]}></E0>
       </PartituraInterno>
     </PartituraStyle>
