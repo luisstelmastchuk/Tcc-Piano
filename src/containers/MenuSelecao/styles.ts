@@ -18,28 +18,37 @@ export const ContainerCorpo = styled.div`
   display: flex;
   flex-direction: column;
   width: 50%;
-  height: 70%;
+  height: 8%;
   left: 25%;
 `
-export const ContainerCorpoInterno = styled.div`
+export const ContainerCorpoAula = styled.div`
+  display: flex;
+  flex-direction: row;
   position: relative;
-  width: 50%;
-  height: 10%;
-  left: 25%;
-  top: 10%;
+  padding: 1%;
+  width: auto;
+  left: 5%;
+  height: 70px;
+  top: 15px;
+  background-color: white;
+  border: 2px solid black;
 `
+
 export const TextoHeader = styled.h1`
   color: #000066;
 `
 export const TextoBotao = styled.h1`
   color: #000066;
 `
+export const TextoLicao = styled.h1`
+  color: #000066;
+`
 export const Botao = styled(Button)`
   background-color: #aaaaaa;
   position: relative;
   text-align: center;
-  padding: 30px;
-  width: 50%;
-  height: 15%;
-  left: 25%;
+  padding: 5px;
+  width: 30%;
+  height: 50px;
+  left: 50px;
 `

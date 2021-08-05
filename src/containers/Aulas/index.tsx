@@ -38,7 +38,7 @@ const Aula: React.FC<INota> = (props) => {
 
   const funcaoAula = async () => {
     if (aula[contador].sections.toString() == NotaArd.toString()) {
-      await sleep(500)
+      await sleep(300)
       contador += 1
     }
     if (contador == 4) contador = 0

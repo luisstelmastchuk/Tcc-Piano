@@ -14,30 +14,26 @@ interface IProps {
   isActived?: boolean
 }
 
-const MenuPrincipal: React.FC<IProps> = (props) => {
+const MenuLicao: React.FC<IProps> = (props) => {
   return (
     <>
       <ContainerHeader>
         <ContainerInternoHeader>
-          <TextoHeader>Bem vindo</TextoHeader>
+          <TextoHeader>Selecione o modo</TextoHeader>
         </ContainerInternoHeader>
       </ContainerHeader>
       <ContainerCorpo>
         <ContainerCorpoInterno />
         <Botao onClick={() => console.log('teste')}>
-          <TextoBotao>Modo Lição</TextoBotao>
+          <TextoBotao>Modo Aula</TextoBotao>
         </Botao>
         <ContainerCorpoInterno />
         <Botao onClick={() => console.log('teste')}>
-          <TextoBotao>Modo Desafio</TextoBotao>
-        </Botao>
-        <ContainerCorpoInterno />
-        <Botao onClick={() => console.log('teste')}>
-          <TextoBotao>Modo Livre</TextoBotao>
+          <TextoBotao>Modo Prova</TextoBotao>
         </Botao>
       </ContainerCorpo>
     </>
   )
 }
 
-export default MenuPrincipal
+export default MenuLicao

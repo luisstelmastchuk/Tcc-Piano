@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { Container } from './styles'
+import { ipcRenderer } from 'electron'
+
 import MenuPrincipal from '../../containers/MenuPrincipal'
 import Aula from '../../containers/Aulas'
 import ModoLivre from '../../containers/ModoLivre'
 import Prova from '../../containers/Prova'
 import Desafio from '../../containers/Desafio'
-import { ipcRenderer } from 'electron'
+import MenuLicao from '../../containers/MenuLicao'
+import MenuSelecao from '../../containers/MenuSelecao'
 import { sleep } from '../../helper/sleep'
 
 const Home: React.FC = () => {
@@ -25,7 +28,8 @@ const Home: React.FC = () => {
       {/* <Desafio notaArd={nota}></Desafio> */}
       {/* <Prova notaArd={nota}></Prova> */}
       {/* <ModoLivre notaArd={nota}></ModoLivre> */}
-      <Aula notaArd={notas} />
+      {/* <Aula notaArd={notas} /> */}
+      <MenuSelecao />
     </Container>
   )
 }

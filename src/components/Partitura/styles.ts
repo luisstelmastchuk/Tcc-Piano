@@ -56,7 +56,7 @@ export const C01 = styled.div<INota>`
     }
   }};
 `
-export const DF0 = styled.h3<INota>`
+export const DF0 = styled.div<INota>`
   position: relative;
   width: 25px;
   height: 18px;
