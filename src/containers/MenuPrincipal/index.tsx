@@ -10,6 +10,8 @@ import {
   Botao,
 } from './styles'
 
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+
 interface IProps {
   isActived?: boolean
 }
@@ -24,7 +26,7 @@ const MenuPrincipal: React.FC<IProps> = (props) => {
       </ContainerHeader>
       <ContainerCorpo>
         <ContainerCorpoInterno />
-        <Botao onClick={() => console.log('teste')}>
+        <Botao onClick={() => (window.location.href = '../MenuLicao')}>
           <TextoBotao>Modo Lição</TextoBotao>
         </Botao>
         <ContainerCorpoInterno />

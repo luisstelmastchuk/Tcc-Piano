@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 // import { Container } from './styles';
 import Piano from '../../components/Piano'
 import Partitura from '../../components/Partitura'
+import { PROVA1 } from '../../global/constants'
+import { sleep } from '../../helper/sleep'
 
 import {
   ContainerHeader,
@@ -19,11 +21,51 @@ import {
 } from './styles'
 
 interface INota {
-  notaArd: string
+  notaArd: string[]
 }
+
+var contador = 0
+var contador2 = 0
+var acerto = 0
+var erro = 0
+var nota = 0
 
 const Prova: React.FC<INota> = (props) => {
   const NotaArd = props.notaArd
+
+  const [prova, setProva] = useState<
+    {
+      id: number
+      sections: string[]
+    }[]
+  >(PROVA1)
+
+  const funcaoProva = async () => {
+    if (NotaArd.toString() != '' && contador2 != 1) {
+      if (prova[contador].sections.toString() == NotaArd.toString()) {
+        await sleep(300)
+        acerto += 1
+        contador += 1
+      } else {
+        await sleep(300)
+        erro += 1
+        contador += 1
+      }
+      if (contador == 4) {
+        contador2 += 1
+        nota = (acerto - erro) * 10
+        if (nota < 0) nota = 0
+      }
+    }
+  }
+
+  funcaoProva()
+  console.log(prova[contador].sections.toString())
+  console.log(NotaArd.toString())
+  console.log({ contador })
+  console.log({ acerto })
+  console.log({ erro })
+  console.log({ nota })
 
   return (
     <>
@@ -37,10 +79,10 @@ const Prova: React.FC<INota> = (props) => {
           <ContainerScore></ContainerScore>
         </ContainerProvaInterno1>
         <ContainerProvaInterno2>
-          <Partitura nota={NotaArd} />
+          <Partitura notaAula={prova[contador]} />
         </ContainerProvaInterno2>
         <ContainerProvaInterno3>
-          <Piano tecla={NotaArd} />
+          <Piano tecla={NotaArd} notaAula={prova[contador]} />
         </ContainerProvaInterno3>
       </ContainerProva>
 
