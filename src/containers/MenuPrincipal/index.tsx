@@ -26,10 +26,30 @@ const MenuPrincipal: React.FC<IProps> = (props) => {
       </ContainerHeader>
       <ContainerCorpo>
         <ContainerCorpoInterno />
-        <Botao onClick={() => (window.location.href = '../MenuLicao')}>
+
+        <Router>
+          <div>
+            <nav>
+              <Link to="../MenuLicao">Menu Lição</Link>
+            </nav>
+            <Switch>
+              <Route exact path="../MenuLicao" />
+            </Switch>
+          </div>
+        </Router>
+
+        {/* 
+        <Botao onClick={() => console.log('Modo lição')}>
           <TextoBotao>Modo Lição</TextoBotao>
-        </Botao>
+          <Router>
+            <Switch>
+              <Route exact path="../MenuLicao"></Route>
+            </Switch>
+          </Router>
+        </Botao> */}
+
         <ContainerCorpoInterno />
+
         <Botao onClick={() => console.log('teste')}>
           <TextoBotao>Modo Desafio</TextoBotao>
         </Botao>

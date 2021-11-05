@@ -58,6 +58,13 @@ async function createWindow() {
   mainWindow.on('page-title-updated', function (e) {
     e.preventDefault()
   })
+
+  mySerial.on('data', function (data) {
+    mainWindow.webContents.send(
+      'arduinoCom',
+      data.toString().replace(/[^A-Za-z0-9]+/g, '')
+    )
+  })
 }
 
 ipcMain.on('app_version', (event) => {
@@ -77,12 +84,5 @@ app
         .catch((err) => console.log('An error occurred: ', err))
     }
   })
-
-mySerial.on('data', function (data) {
-  mainWindow.webContents.send(
-    'arduinoCom',
-    data.toString().replace(/[^A-Za-z0-9]+/g, '')
-  )
-})
 
 app.allowRendererProcessReuse = true

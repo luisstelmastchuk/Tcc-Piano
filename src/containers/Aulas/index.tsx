@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 // import { Container } from './styles';
 import Piano from '../../components/Piano'
@@ -24,10 +24,10 @@ interface INota {
   notaArd: string[]
 }
 
-var contador = 0
-
 const Aula: React.FC<INota> = (props) => {
   const NotaArd = props.notaArd
+
+  const [contador, setContador] = useState(0)
 
   const [aula, setAula] = useState<
     {
@@ -36,18 +36,26 @@ const Aula: React.FC<INota> = (props) => {
     }[]
   >(AULA1)
 
-  const funcaoAula = async () => {
-    if (aula[contador].sections.toString() == NotaArd.toString()) {
-      await sleep(300)
-      contador += 1
+  useEffect(() => {
+    const funcaoAula = async () => {
+      if (aula[contador].sections.toString() == NotaArd.toString()) {
+        await sleep(500)
+
+        if (contador != 6) {
+          setContador(contador + 1)
+        } else {
+          setContador(0)
+        }
+      }
+
+      // console.log(aula[contador].sections.toString() == NotaArd.toString())
     }
-    if (contador == 4) contador = 0
-  }
 
-  funcaoAula()
+    funcaoAula()
+  }, [NotaArd])
 
-  console.log(aula[contador].sections.toString())
-  console.log(NotaArd.toString())
+  // console.log(aula[contador].sections.toString())
+  // console.log(NotaArd.toString())
   console.log({ contador })
 
   return (

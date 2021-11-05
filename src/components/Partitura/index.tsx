@@ -60,7 +60,7 @@ const Partitura: React.FC<INota> = (props) => {
   const notaAulaX = props.notaAula.sections
   var notaA = [false]
 
-  console.log(notaAulaX)
+  // console.log(notaAulaX)
 
   const funcaoAula = async () => {
     while (contadorPNota < 24) {

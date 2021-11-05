@@ -19,6 +19,7 @@ const Home: React.FC = () => {
       setNotas(arduinoData.split('a').filter((nota) => nota != ''))
       // console.log({
       //   arduinoData: arduinoData.split('a').filter((nota) => nota != ''),
+      //   data: arduinoData,
       // })
     })
   }, [])
@@ -28,8 +29,8 @@ const Home: React.FC = () => {
       {/* <Desafio notaArd={notas}></Desafio> */}
       {/* <Prova notaArd={notas}></Prova> */}
       {/* <ModoLivre notaArd={notas}></ModoLivre> */}
-      {/* <Aula notaArd={notas} /> */}
-      <MenuPrincipal />
+      <Aula notaArd={notas} />
+      {/* <MenuPrincipal /> */}
     </Container>
   )
 }
