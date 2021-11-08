@@ -34,6 +34,7 @@ import {
   GFs1,
   G1,
   AF1,
+  AF11,
   AFs1,
   A1,
   A11,
@@ -67,7 +68,7 @@ const Partitura: React.FC<INota> = (props) => {
       contadorPNota += 1
       notaA[contadorPNota] = false
     }
-    while (contadorP != 3) {
+    while (contadorP != 24) {
       notaA[0] = notaAulaX[contadorP] == 'C0' ? true : notaA[0]
       notaA[1] = notaAulaX[contadorP] == 'DF0' ? true : notaA[1]
       notaA[2] = notaAulaX[contadorP] == 'D0' ? true : notaA[2]
@@ -95,7 +96,7 @@ const Partitura: React.FC<INota> = (props) => {
       contadorP += 1
     }
     contadorPNota = 0
-    if (contadorP == 3) contadorP = 0
+    if (contadorP == 24) contadorP = 0
   }
 
   funcaoAula()
@@ -105,8 +106,11 @@ const Partitura: React.FC<INota> = (props) => {
   return (
     <PartituraStyle>
       <PartituraInterno2>
-        <G1 isActived={notaA[19]}></G1>
+        <G1 isActived={notaA[19]}>
+          <AF11 isActived={notaA[19]}></AF11>
+        </G1>
         <AF1 isActived={notaA[20]}>
+          <AF11 isActived={notaA[20]}></AF11>
           <AFs1 isActived={notaA[20]}>#</AFs1>
         </AF1>
         <A1 isActived={notaA[21]}>
@@ -120,13 +124,17 @@ const Partitura: React.FC<INota> = (props) => {
           <B11 isActived={notaA[23]}></B11>
         </B1>
       </PartituraInterno2>
-      <PartituraInterno>
+      <PartituraInterno2>
         <E1 isActived={notaA[16]}></E1>
-        <F1 isActived={notaA[17]}></F1>]
+        <F1 isActived={notaA[17]}>
+          <DF01 isActived={notaA[17]}></DF01>
+        </F1>
+        ]
         <GF1 isActived={notaA[18]}>
+          <DF01 isActived={notaA[1]}></DF01>
           <GFs1 isActived={notaA[18]}>#</GFs1>
         </GF1>
-      </PartituraInterno>
+      </PartituraInterno2>
       <PartituraInterno>
         <C1 isActived={notaA[12]}></C1>
         <DF1 isActived={notaA[13]}>

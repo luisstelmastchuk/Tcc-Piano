@@ -109,7 +109,7 @@ export const D0 = styled.div<INota>`
   -moz-border-radius: 15px;
   border-radius: 25px;
   left: 70px;
-  top: -45px;
+  top: -37.5px;
   ${(props) => {
     if (props.isActived == true) {
       return css`
@@ -126,7 +126,7 @@ export const EF0 = styled.div<INota>`
   -moz-border-radius: 15px;
   border-radius: 25px;
   left: 107px;
-  top: -63px;
+  top: -56px;
   ${(props) => {
     if (props.isActived == true) {
       return css`
@@ -158,7 +158,7 @@ export const E0 = styled.div<INota>`
   -moz-border-radius: 15px;
   border-radius: 25px;
   left: 135px;
-  top: -90px;
+  top: -82px;
   ${(props) => {
     if (props.isActived == true) {
       return css`
@@ -432,6 +432,7 @@ export const E1 = styled.div<INota>`
   -moz-border-radius: 15px;
   border-radius: 25px;
   left: 508px;
+  top: 2px;
   ${(props) => {
     if (props.isActived == true) {
       return css`
@@ -496,7 +497,7 @@ export const G1 = styled.div<INota>`
   -moz-border-radius: 15px;
   border-radius: 25px;
   left: 595px;
-  top: 3px;
+  top: 0px;
   ${(props) => {
     if (props.isActived == true) {
       return css`
@@ -513,7 +514,7 @@ export const AF1 = styled.div<INota>`
   -moz-border-radius: 15px;
   border-radius: 25px;
   left: 630px;
-  top: -15px;
+  top: -18px;
   ${(props) => {
     if (props.isActived == true) {
       return css`
@@ -522,6 +523,21 @@ export const AF1 = styled.div<INota>`
     }
   }};
 `
+export const AF11 = styled.div<INota>`
+  position: relative;
+  width: 35px;
+  height: 2px;
+  top: 18px;
+  left: -5px;
+  ${(props) => {
+    if (props.isActived == true) {
+      return css`
+        background-color: black;
+      `
+    }
+  }};
+`
+
 export const AFs1 = styled.h3<INota>`
   position: relative;
   text-align: center;

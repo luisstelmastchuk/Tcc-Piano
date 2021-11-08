@@ -33,6 +33,7 @@ const Aula: React.FC<INota> = (props) => {
     {
       id: number
       sections: string[]
+      status: number
     }[]
   >(AULA1)
 
@@ -40,19 +41,25 @@ const Aula: React.FC<INota> = (props) => {
     const funcaoAula = async () => {
       if (aula[contador].sections.toString() == NotaArd.toString()) {
         await sleep(500)
-
         if (contador != 6) {
           setContador(contador + 1)
         } else {
-          setContador(0)
+          setContador(contador)
         }
       }
-
       // console.log(aula[contador].sections.toString() == NotaArd.toString())
     }
 
     funcaoAula()
   }, [NotaArd])
+
+  const funcaoRepetir = async () => {
+    if (contador > 0) {
+      setContador(contador - 1)
+    } else {
+      setContador(contador)
+    }
+  }
 
   // console.log(aula[contador].sections.toString())
   // console.log(NotaArd.toString())
@@ -81,7 +88,7 @@ const Aula: React.FC<INota> = (props) => {
           <Botao onClick={() => console.log('teste')}>Parar</Botao>
         </ContainerFooterInterno1>
         <ContainerFooterInterno2>
-          <Botao onClick={() => console.log('teste')}>Repetir</Botao>
+          <Botao onClick={() => funcaoRepetir()}>Repetir</Botao>
         </ContainerFooterInterno2>
       </ContainerFooter>
     </>
