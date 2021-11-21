@@ -49,7 +49,7 @@ async function createWindow() {
     )
   }
 
-  mainWindow.setTitle('DBHelper')
+  mainWindow.setTitle('PianoHelper')
 
   mainWindow.on('closed', () => {
     mainWindow = null

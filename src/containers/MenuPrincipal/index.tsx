@@ -10,9 +10,15 @@ import {
   Botao,
 } from './styles'
 
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  withRouter,
+  RouteComponentProps,
+} from 'react-router-dom'
 
-interface IProps {
+interface IProps extends RouteComponentProps {
   isActived?: boolean
 }
 
@@ -27,26 +33,9 @@ const MenuPrincipal: React.FC<IProps> = (props) => {
       <ContainerCorpo>
         <ContainerCorpoInterno />
 
-        <Router>
-          <div>
-            <nav>
-              <Link to="../MenuLicao">Menu Lição</Link>
-            </nav>
-            <Switch>
-              <Route exact path="../MenuLicao" />
-            </Switch>
-          </div>
-        </Router>
-
-        {/* 
-        <Botao onClick={() => console.log('Modo lição')}>
+        <Botao onClick={() => props.history.push('/MenuLicao')}>
           <TextoBotao>Modo Lição</TextoBotao>
-          <Router>
-            <Switch>
-              <Route exact path="../MenuLicao"></Route>
-            </Switch>
-          </Router>
-        </Botao> */}
+        </Botao>
 
         <ContainerCorpoInterno />
 
@@ -62,4 +51,4 @@ const MenuPrincipal: React.FC<IProps> = (props) => {
   )
 }
 
-export default MenuPrincipal
+export default withRouter(MenuPrincipal)

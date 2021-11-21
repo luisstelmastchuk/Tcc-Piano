@@ -26,9 +26,9 @@ const NOTAS = [
 ]
 
 const AULA1 = [
-  { id: 1, sections: ['C0', 'G0', 'A1'], status: 1 },
-  { id: 2, sections: ['DF0', 'C1', 'G1'], status: 1 },
-  { id: 3, sections: ['B0', 'EF1', 'AF1'], status: 1 },
+  { id: 1, sections: ['C0', 'G0', 'A1'], status: 0 },
+  { id: 2, sections: ['DF0', 'C1', 'G1'], status: 0 },
+  { id: 3, sections: ['B0', 'EF1', 'AF1'], status: 0 },
   { id: 4, sections: ['EF0', 'E1', 'B1'], status: 0 },
   { id: 5, sections: ['C0', 'E0', 'A0'], status: 0 },
   { id: 6, sections: ['G0', 'C1', 'GF1'], status: 0 },
