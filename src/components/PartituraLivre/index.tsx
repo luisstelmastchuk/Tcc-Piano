@@ -46,20 +46,15 @@ import {
 } from './styles'
 
 interface INota {
-  notaAula?: {
-    id: number
-    sections: string[]
-  }
+  tecla?: string[]
 }
 
 var contadorP = 0
 var contadorPNota = 0
 
-const Partitura: React.FC<INota> = (props) => {
-  const notaAulaX = props.notaAula.sections
+const PartituraLivre: React.FC<INota> = (props) => {
+  const notaAulaX = props.tecla
   var notaA = [false]
-
-  // console.log(notaAulaX)
 
   const funcaoAula = async () => {
     while (contadorPNota < 24) {
@@ -98,8 +93,6 @@ const Partitura: React.FC<INota> = (props) => {
   }
 
   funcaoAula()
-
-  // console.log(notaA)
 
   return (
     <PartituraStyle>
@@ -178,4 +171,4 @@ const Partitura: React.FC<INota> = (props) => {
   )
 }
 
-export default Partitura
+export default PartituraLivre

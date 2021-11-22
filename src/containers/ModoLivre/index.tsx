@@ -1,8 +1,8 @@
 import React from 'react'
 
 // import { Container } from './styles';
-import Piano from '../../components/Piano'
-import Partitura from '../../components/Partitura'
+import PianoLivre from '../../components/PianoLivre'
+import PartituraLivre from '../../components/PartituraLivre'
 
 import {
   ContainerHeader,
@@ -18,7 +18,7 @@ import {
 } from './styles'
 
 interface INota {
-  notaArd: string
+  notaArd: string[]
 }
 
 const ModoLivre: React.FC<INota> = (props) => {
@@ -32,23 +32,19 @@ const ModoLivre: React.FC<INota> = (props) => {
 
       <ContainerLivre>
         <ContainerLivreInterno1>
-          <Partitura nota={NotaArd} />
+          <PartituraLivre tecla={NotaArd} />
         </ContainerLivreInterno1>
         <ContainerLivreInterno2>
-          <Piano tecla={NotaArd} />
+          <PianoLivre tecla={NotaArd} />
         </ContainerLivreInterno2>
       </ContainerLivre>
 
       <ContainerFooter>
-        <ContainerFooterInterno1>
-          <Botao onClick={() => console.log('teste')}>Limpar</Botao>
-        </ContainerFooterInterno1>
+        <ContainerFooterInterno1></ContainerFooterInterno1>
         <ContainerFooterInterno3>
-          <Botao onClick={() => console.log('teste')}>Gravar</Botao>
-        </ContainerFooterInterno3>
-        <ContainerFooterInterno2>
           <Botao onClick={() => console.log('teste')}>Finalizar</Botao>
-        </ContainerFooterInterno2>
+        </ContainerFooterInterno3>
+        <ContainerFooterInterno2></ContainerFooterInterno2>
       </ContainerFooter>
     </>
   )

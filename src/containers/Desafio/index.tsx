@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 // import { Container } from './styles';
 import Piano from '../../components/Piano'
 import Partitura from '../../components/Partitura'
+import { DESAFIO1 } from '../../global/constants'
+import { sleep } from '../../helper/sleep'
 
 import {
   ContainerHeader,
@@ -21,16 +23,42 @@ import {
 } from './styles'
 
 interface INota {
-  notaArd: string
+  notaArd: string[]
 }
 
 const Desafio: React.FC<INota> = (props) => {
   const NotaArd = props.notaArd
 
+  const [contador, setContador] = useState(0)
+
+  const [desafio, setDesafio] = useState<
+    {
+      id: number
+      sections: string[]
+      status: number
+    }[]
+  >(DESAFIO1)
+
+  useEffect(() => {
+    const funcaoDesafio = async () => {
+      if (desafio[contador].sections.toString() == NotaArd.toString()) {
+        await sleep(500)
+        if (contador != 6) {
+          setContador(contador + 1)
+        } else {
+          setContador(contador)
+        }
+      }
+      // console.log(aula[contador].sections.toString() == NotaArd.toString())
+    }
+
+    funcaoDesafio()
+  }, [NotaArd])
+
   return (
     <>
       <ContainerHeader>
-        <Texto>Avaliação 1</Texto>
+        <Texto>Desafio</Texto>
       </ContainerHeader>
 
       <ContainerDesafio>
@@ -40,10 +68,10 @@ const Desafio: React.FC<INota> = (props) => {
           <ContainerScore></ContainerScore>
         </ContainerDesafioInterno1>
         <ContainerDesafioInterno2>
-          <Partitura nota={NotaArd} />
+          <Partitura notaAula={desafio[contador]} />
         </ContainerDesafioInterno2>
         <ContainerDesafioInterno3>
-          <Piano tecla={NotaArd} />
+          <Piano tecla={NotaArd} notaAula={desafio[contador]} />
         </ContainerDesafioInterno3>
       </ContainerDesafio>
 

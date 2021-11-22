@@ -6,24 +6,17 @@ interface ITecla {
   tecla?: string[]
   nota?: string
   notaNome?: string
-  notaAula: {
-    id: number
-    sections: string[]
-  }
 }
 
-const Teclas: React.FC<ITecla> = (props) => {
+const TeclasLivre: React.FC<ITecla> = (props) => {
   const notaNome = props.notaNome.toUpperCase()
   const teclaMenor = props.nota.length > 2 ? true : false
   const teclaNota = props.nota?.toUpperCase()
   const teclaPressionada = props.tecla
-  const notaAulaX = props.notaAula.sections
 
   const compararTecla = () => {
     return teclaPressionada.some((notaC) => notaC == teclaNota)
-      ? notaAulaX.some((notaC) => notaC == teclaNota)
-        ? 'correto'
-        : 'errado'
+      ? 'true'
       : 'false'
   }
 
@@ -42,4 +35,4 @@ const Teclas: React.FC<ITecla> = (props) => {
   )
 }
 
-export default Teclas
+export default TeclasLivre

@@ -43,4 +43,13 @@ const PROVA1 = [
   { id: 6, sections: ['G0', 'C1', 'GF1'], status: 0 },
 ]
 
-export { NOTAS, AULA1, PROVA1 }
+const DESAFIO1 = [
+  { id: 1, sections: ['C0'], status: 0 },
+  { id: 2, sections: ['DF0'], status: 0 },
+  { id: 3, sections: ['B0'], status: 0 },
+  { id: 4, sections: ['EF0'], status: 0 },
+  { id: 5, sections: ['C0'], status: 0 },
+  { id: 6, sections: ['G0', 'C1'], status: 0 },
+]
+
+export { NOTAS, AULA1, PROVA1, DESAFIO1 }

@@ -48,6 +48,6 @@ export const ContainerFooterInterno3 = styled.div`
   position: relative;
   width: 30%;
   left: 34.58%;
-  top: -22px;
+  top: 10px;
 `
 export const Botao = styled(Button)``
