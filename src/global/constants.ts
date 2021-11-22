@@ -25,31 +25,42 @@ const NOTAS = [
   { key: 'B1', name: 'B1', isActived: false },
 ]
 
-const AULA1 = [
-  { id: 1, sections: ['C0', 'G0', 'A1'], status: 0 },
-  { id: 2, sections: ['DF0', 'C1', 'G1'], status: 0 },
-  { id: 3, sections: ['B0', 'EF1', 'AF1'], status: 0 },
-  { id: 4, sections: ['EF0', 'E1', 'B1'], status: 0 },
-  { id: 5, sections: ['C0', 'E0', 'A0'], status: 0 },
-  { id: 6, sections: ['G0', 'C1', 'GF1'], status: 0 },
+const AULAS = [
+  [
+    { id: 1, sections: ['C0', 'G0', 'A1'] },
+    { id: 2, sections: ['DF0', 'C1', 'G1'] },
+    { id: 3, sections: ['B0', 'EF1', 'AF1'] },
+    { id: 4, sections: ['EF0', 'E1', 'B1'] },
+    { id: 5, sections: ['C0', 'E0', 'A0'] },
+    { id: 6, sections: ['G0', 'C1', 'GF1'] },
+  ],
+
+  [
+    { id: 1, sections: ['G0', 'C1', 'A1'] },
+    { id: 2, sections: ['G1', 'DF1', 'C1'] },
+    { id: 3, sections: ['B1', 'EF1', 'AF1'] },
+    { id: 4, sections: ['EF0', 'E1', 'B1'] },
+    { id: 5, sections: ['C0', 'E0', 'A0'] },
+    { id: 6, sections: ['G0', 'C1', 'GF1'] },
+  ],
 ]
 
 const PROVA1 = [
-  { id: 1, sections: ['C0', 'G0', 'A1'], status: 0 },
-  { id: 2, sections: ['DF0', 'C1', 'G1'], status: 0 },
-  { id: 3, sections: ['B0', 'EF1', 'AF1'], status: 0 },
-  { id: 4, sections: ['EF0', 'E1', 'B1'], status: 0 },
-  { id: 5, sections: ['C0', 'E0', 'A0'], status: 0 },
-  { id: 6, sections: ['G0', 'C1', 'GF1'], status: 0 },
+  { id: 1, sections: ['C0', 'G0', 'A1'] },
+  { id: 2, sections: ['DF0', 'C1', 'G1'] },
+  { id: 3, sections: ['B0', 'EF1', 'AF1'] },
+  { id: 4, sections: ['EF0', 'E1', 'B1'] },
+  { id: 5, sections: ['C0', 'E0', 'A0'] },
+  { id: 6, sections: ['G0', 'C1', 'GF1'] },
 ]
 
 const DESAFIO1 = [
-  { id: 1, sections: ['C0'], status: 0 },
-  { id: 2, sections: ['DF0'], status: 0 },
-  { id: 3, sections: ['B0'], status: 0 },
-  { id: 4, sections: ['EF0'], status: 0 },
-  { id: 5, sections: ['C0'], status: 0 },
-  { id: 6, sections: ['G0', 'C1'], status: 0 },
+  { id: 1, sections: ['C0'] },
+  { id: 2, sections: ['DF0'] },
+  { id: 3, sections: ['B0'] },
+  { id: 4, sections: ['EF0'] },
+  { id: 5, sections: ['C0'] },
+  { id: 6, sections: ['G0', 'C1'] },
 ]
 
-export { NOTAS, AULA1, PROVA1, DESAFIO1 }
+export { NOTAS, AULAS, PROVA1, DESAFIO1 }

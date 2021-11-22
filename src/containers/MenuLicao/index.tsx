@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 
 import {
   ContainerHeader,
@@ -12,6 +12,8 @@ import {
 
 interface IProps {
   isActived?: boolean
+  notaArd: string[]
+  setPage: Dispatch<SetStateAction<number>>
 }
 
 const MenuLicao: React.FC<IProps> = (props) => {

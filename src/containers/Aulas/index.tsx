@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import Piano from '../../components/Piano'
 import PianoAula from '../../components/PianoAula'
 import Partitura from '../../components/Partitura'
-import { AULA1 } from '../../global/constants'
+import { AULAS } from '../../global/constants'
 import { sleep } from '../../helper/sleep'
 
 import {
@@ -33,18 +33,22 @@ const Aula: React.FC<INota> = (props) => {
     {
       id: number
       sections: string[]
-      status: number
     }[]
-  >(AULA1)
+  >(AULAS[1])
 
   useEffect(() => {
     const funcaoAula = async () => {
-      if (aula[contador].sections.toString() == NotaArd.toString()) {
+      if (
+        aula[contador].sections.every((nota) =>
+          NotaArd.some((_notaArd) => _notaArd == nota)
+        ) &&
+        NotaArd.length
+      ) {
         await sleep(500)
-        if (contador != 6) {
+        if (contador != 5) {
           setContador(contador + 1)
         } else {
-          setContador(contador)
+          setContador(0)
         }
       }
       // console.log(aula[contador].sections.toString() == NotaArd.toString())
@@ -63,7 +67,7 @@ const Aula: React.FC<INota> = (props) => {
 
   // console.log(aula[contador].sections.toString())
   // console.log(NotaArd.toString())
-  console.log({ contador })
+  // console.log({ contador })
 
   return (
     <>

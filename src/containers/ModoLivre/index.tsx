@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 
-// import { Container } from './styles';
 import PianoLivre from '../../components/PianoLivre'
 import PartituraLivre from '../../components/PartituraLivre'
 
@@ -9,6 +8,7 @@ import {
   ContainerLivre,
   ContainerFooter,
   Texto,
+  TextoBotao,
   Botao,
   ContainerLivreInterno1,
   ContainerLivreInterno2,
@@ -19,6 +19,7 @@ import {
 
 interface INota {
   notaArd: string[]
+  setPage: Dispatch<SetStateAction<number>>
 }
 
 const ModoLivre: React.FC<INota> = (props) => {
@@ -42,7 +43,9 @@ const ModoLivre: React.FC<INota> = (props) => {
       <ContainerFooter>
         <ContainerFooterInterno1></ContainerFooterInterno1>
         <ContainerFooterInterno3>
-          <Botao onClick={() => console.log('teste')}>Finalizar</Botao>
+          <Botao onClick={() => props.setPage(0)}>
+            <TextoBotao>Finalizar</TextoBotao>
+          </Botao>
         </ContainerFooterInterno3>
         <ContainerFooterInterno2></ContainerFooterInterno2>
       </ContainerFooter>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import {
   ContainerHeader,
@@ -10,41 +10,54 @@ import {
   Botao,
 } from './styles'
 
+import MenuLicao from '../../containers/MenuLicao'
+import Desafio from '../../containers/Desafio'
+import ModoLivre from '../../containers/ModoLivre'
+
 import { withRouter, RouteComponentProps } from 'react-router-dom'
 
-interface IProps extends RouteComponentProps {
+interface IProps {
   isActived?: boolean
   notaArd: string[]
 }
 
 const MenuPrincipal: React.FC<IProps> = (props) => {
+  const [page, setPage] = useState(0)
+
   return (
     <>
-      <ContainerHeader>
-        <ContainerInternoHeader>
-          <TextoHeader>Bem vindo</TextoHeader>
-        </ContainerInternoHeader>
-      </ContainerHeader>
-      <ContainerCorpo>
-        <ContainerCorpoInterno />
+      {page === 0 && (
+        <>
+          <ContainerHeader>
+            <ContainerInternoHeader>
+              <TextoHeader>Bem vindo</TextoHeader>
+            </ContainerInternoHeader>
+          </ContainerHeader>
+          <ContainerCorpo>
+            <ContainerCorpoInterno />
 
-        <Botao onClick={() => props.history.push('/MenuLicao')}>
-          <TextoBotao>Modo Lição</TextoBotao>
-        </Botao>
+            <Botao onClick={() => setPage(1)}>
+              <TextoBotao>Modo Lição</TextoBotao>
+            </Botao>
 
-        <ContainerCorpoInterno />
+            <ContainerCorpoInterno />
 
-        <Botao onClick={() => props.history.push('/Desafio')}>
-          <TextoBotao>Modo Desafio</TextoBotao>
-        </Botao>
+            <Botao onClick={() => setPage(2)}>
+              <TextoBotao>Modo Desafio</TextoBotao>
+            </Botao>
 
-        <ContainerCorpoInterno />
-        <Botao onClick={() => props.history.push('/ModoLivre')}>
-          <TextoBotao>Modo Livre</TextoBotao>
-        </Botao>
-      </ContainerCorpo>
+            <ContainerCorpoInterno />
+            <Botao onClick={() => setPage(3)}>
+              <TextoBotao>Modo Livre</TextoBotao>
+            </Botao>
+          </ContainerCorpo>
+        </>
+      )}
+      {page === 1 && <MenuLicao notaArd={props.notaArd} setPage={setPage} />}
+      {page === 2 && <Desafio notaArd={props.notaArd} setPage={setPage} />}
+      {page === 3 && <ModoLivre notaArd={props.notaArd} setPage={setPage} />}
     </>
   )
 }
 
-export default withRouter(MenuPrincipal)
+export default MenuPrincipal

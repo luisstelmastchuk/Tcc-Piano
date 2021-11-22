@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, Dispatch, SetStateAction } from 'react'
 
-// import { Container } from './styles';
 import Piano from '../../components/Piano'
 import Partitura from '../../components/Partitura'
 import { DESAFIO1 } from '../../global/constants'
@@ -11,6 +10,7 @@ import {
   ContainerDesafio,
   ContainerFooter,
   Texto,
+  TextoBotao,
   Botao,
   ContainerDesafioInterno1,
   ContainerDesafioInterno2,
@@ -24,6 +24,7 @@ import {
 
 interface INota {
   notaArd: string[]
+  setPage: Dispatch<SetStateAction<number>>
 }
 
 const Desafio: React.FC<INota> = (props) => {
@@ -80,7 +81,9 @@ const Desafio: React.FC<INota> = (props) => {
           <Botao onClick={() => console.log('teste')}>Reiniciar</Botao>
         </ContainerFooterInterno1>
         <ContainerFooterInterno2>
-          <Botao onClick={() => console.log('teste')}>Finalizar</Botao>
+          <Botao onClick={() => props.setPage(0)}>
+            <TextoBotao>Finalizar</TextoBotao>
+          </Botao>
         </ContainerFooterInterno2>
       </ContainerFooter>
     </>

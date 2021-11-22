@@ -50,4 +50,11 @@ export const ContainerFooterInterno3 = styled.div`
   left: 34.58%;
   top: 10px;
 `
+
+export const TextoBotao = styled.h1`
+  color: #000066;
+  font-size: 14px;
+  text-align: center;
+`
+
 export const Botao = styled(Button)``

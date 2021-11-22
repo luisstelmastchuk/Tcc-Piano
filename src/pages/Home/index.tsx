@@ -15,7 +15,7 @@ const Home: React.FC = () => {
   const [notas, setNotas] = useState<string[]>([])
 
   useEffect(() => {
-    ipcRenderer.on('arduinoCom', async (e, arduinoData) => {
+    ipcRenderer.on('arduinoCom', (e, arduinoData) => {
       setNotas(arduinoData.split('a').filter((nota) => nota != ''))
       // console.log({
       //   arduinoData: arduinoData.split('a').filter((nota) => nota != ''),
@@ -28,9 +28,10 @@ const Home: React.FC = () => {
     <Container>
       {/* <Desafio notaArd={notas}></Desafio> */}
       {/* <Prova notaArd={notas}></Prova> */}
-      <ModoLivre notaArd={notas}></ModoLivre>
+      {/* <ModoLivre notaArd={notas}></ModoLivre> */}
       {/* <Aula notaArd={notas} /> */}
       {/* <MenuPrincipal notaArd={notas} /> */}
+      {/* <MenuSelecao /> */}
     </Container>
   )
 }
