@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 // import { Container } from './styles';
 import Piano from '../../components/Piano'
 import Partitura from '../../components/Partitura'
-import { PROVA1 } from '../../global/constants'
+import { PROVAS } from '../../global/constants'
 import { sleep } from '../../helper/sleep'
 
 import {
@@ -22,6 +22,7 @@ import {
 
 interface INota {
   notaArd: string[]
+  provaP: number
 }
 
 var contador = 0
@@ -38,7 +39,7 @@ const Prova: React.FC<INota> = (props) => {
       id: number
       sections: string[]
     }[]
-  >(PROVA1)
+  >(PROVAS[props.provaP])
 
   const funcaoProva = async () => {
     if (NotaArd.toString() != '' && contador2 != 1) {

@@ -1,4 +1,6 @@
-import React, { Dispatch, SetStateAction } from 'react'
+import React, { Dispatch, SetStateAction, useState } from 'react'
+import MenuSelecao from '../../containers/MenuSelecao'
+import MenuSelecaoP from '../../containers/MenuSelecaoP'
 
 import {
   ContainerHeader,
@@ -17,23 +19,35 @@ interface IProps {
 }
 
 const MenuLicao: React.FC<IProps> = (props) => {
+  const [pageAula, setPageAula] = useState(0)
+
   return (
     <>
-      <ContainerHeader>
-        <ContainerInternoHeader>
-          <TextoHeader>Selecione o modo</TextoHeader>
-        </ContainerInternoHeader>
-      </ContainerHeader>
-      <ContainerCorpo>
-        <ContainerCorpoInterno />
-        <Botao onClick={() => console.log('teste')}>
-          <TextoBotao>Modo Aula</TextoBotao>
-        </Botao>
-        <ContainerCorpoInterno />
-        <Botao onClick={() => console.log('teste')}>
-          <TextoBotao>Modo Prova</TextoBotao>
-        </Botao>
-      </ContainerCorpo>
+      {pageAula === 0 && (
+        <>
+          <ContainerHeader>
+            <ContainerInternoHeader>
+              <TextoHeader>Selecione o modo</TextoHeader>
+            </ContainerInternoHeader>
+          </ContainerHeader>
+          <ContainerCorpo>
+            <ContainerCorpoInterno />
+            <Botao onClick={() => setPageAula(1)}>
+              <TextoBotao>Modo Aula</TextoBotao>
+            </Botao>
+            <ContainerCorpoInterno />
+            <Botao onClick={() => setPageAula(2)}>
+              <TextoBotao>Modo Prova</TextoBotao>
+            </Botao>
+          </ContainerCorpo>
+        </>
+      )}
+      {pageAula === 1 && (
+        <MenuSelecao notaArd={props.notaArd} setPageAula={setPageAula} />
+      )}
+      {pageAula === 2 && (
+        <MenuSelecaoP notaArd={props.notaArd} setPageProva={setPageAula} />
+      )}
     </>
   )
 }

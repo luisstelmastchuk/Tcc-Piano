@@ -22,6 +22,7 @@ import {
 
 interface INota {
   notaArd: string[]
+  aulaA: number
 }
 
 const Aula: React.FC<INota> = (props) => {
@@ -34,7 +35,7 @@ const Aula: React.FC<INota> = (props) => {
       id: number
       sections: string[]
     }[]
-  >(AULAS[1])
+  >(AULAS[props.aulaA])
 
   useEffect(() => {
     const funcaoAula = async () => {

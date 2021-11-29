@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 import {
   ContainerHeader,
@@ -13,8 +13,6 @@ import {
 import MenuLicao from '../../containers/MenuLicao'
 import Desafio from '../../containers/Desafio'
 import ModoLivre from '../../containers/ModoLivre'
-
-import { withRouter, RouteComponentProps } from 'react-router-dom'
 
 interface IProps {
   isActived?: boolean

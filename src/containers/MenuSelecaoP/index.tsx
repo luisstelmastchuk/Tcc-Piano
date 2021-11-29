@@ -14,10 +14,10 @@ import {
 interface IProps {
   isActived?: boolean
   notaArd: string[]
-  setPageAula: Dispatch<SetStateAction<number>>
+  setPageProva: Dispatch<SetStateAction<number>>
 }
 
-const MenuSelecao: React.FC<IProps> = (props) => {
+const MenuSelecaoP: React.FC<IProps> = (props) => {
   return (
     <>
       <ContainerHeader>
@@ -27,25 +27,25 @@ const MenuSelecao: React.FC<IProps> = (props) => {
       </ContainerHeader>
       <ContainerCorpo>
         <ContainerCorpoAula>
-          <TextoLicao>Lição 1 : Conhecendo o piano parte 1</TextoLicao>
+          <TextoLicao>Prova 1 : Avaliação de conhecimento Lição 1</TextoLicao>
           <Botao>
             <TextoBotao>Iniciar</TextoBotao>
           </Botao>
         </ContainerCorpoAula>
         <ContainerCorpoAula>
-          <TextoLicao>Lição 2 : Conhecendo o piano parte 2</TextoLicao>
+          <TextoLicao>Prova 2 : Avaliação de conhecimento Lição 2</TextoLicao>
           <Botao>
             <TextoBotao>Iniciar</TextoBotao>
           </Botao>
         </ContainerCorpoAula>
         <ContainerCorpoAula>
-          <TextoLicao>Lição 3 : Conhecendo o piano parte 3</TextoLicao>
+          <TextoLicao> Prova 3 : Avaliação de conhecimento Lição 3</TextoLicao>
           <Botao>
             <TextoBotao>Iniciar</TextoBotao>
           </Botao>
         </ContainerCorpoAula>
         <ContainerCorpoAula>
-          <TextoLicao>Lição 4 : Primeira Música Do Ré Mi Fá</TextoLicao>
+          <TextoLicao>Prova 4 : Avaliação de conhecimento Lição 4</TextoLicao>
           <Botao>
             <TextoBotao>Iniciar</TextoBotao>
           </Botao>
@@ -55,4 +55,4 @@ const MenuSelecao: React.FC<IProps> = (props) => {
   )
 }
 
-export default MenuSelecao
+export default MenuSelecaoP
