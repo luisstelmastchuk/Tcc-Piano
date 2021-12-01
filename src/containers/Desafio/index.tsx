@@ -2,7 +2,7 @@ import React, { useEffect, useState, Dispatch, SetStateAction } from 'react'
 
 import Piano from '../../components/Piano'
 import Partitura from '../../components/Partitura'
-import { DESAFIO1 } from '../../global/constants'
+import { DESAFIO } from '../../global/constants'
 import { sleep } from '../../helper/sleep'
 
 import {
@@ -36,9 +36,8 @@ const Desafio: React.FC<INota> = (props) => {
     {
       id: number
       sections: string[]
-      status: number
     }[]
-  >(DESAFIO1)
+  >(DESAFIO)
 
   useEffect(() => {
     const funcaoDesafio = async () => {

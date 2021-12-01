@@ -1,5 +1,4 @@
-import React, { Dispatch, SetStateAction } from 'react'
-
+import React, { Dispatch, SetStateAction, useEffect } from 'react'
 import PianoLivre from '../../components/PianoLivre'
 import PartituraLivre from '../../components/PartituraLivre'
 
@@ -19,9 +18,8 @@ import {
 
 interface INota {
   notaArd: string[]
-  setPage: Dispatch<SetStateAction<number>>
+  setPage?: Dispatch<SetStateAction<number>>
 }
-
 const ModoLivre: React.FC<INota> = (props) => {
   const NotaArd = props.notaArd
 

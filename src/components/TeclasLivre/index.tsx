@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { NOTAS } from '../../global/constants'
 
 import { TeclasStyle, TeclaTexto, TeclaPStyle, TeclaPTexto } from './styles'
 
@@ -19,6 +20,13 @@ const TeclasLivre: React.FC<ITecla> = (props) => {
       ? 'true'
       : 'false'
   }
+
+  useEffect(() => {
+    const audios = NOTAS.filter((nota) =>
+      props.tecla.some((tecla) => tecla === nota.name)
+    )
+    audios.forEach((audio) => audio.audio.play())
+  }, [props.tecla])
 
   return (
     <>

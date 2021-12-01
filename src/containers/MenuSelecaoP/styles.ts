@@ -48,7 +48,19 @@ export const Botao = styled(Button)`
   position: relative;
   text-align: center;
   padding: 5px;
-  width: 30%;
+  width: 20%;
   height: 50px;
   left: 50px;
+`
+export const BotaoVoltar = styled(Button)`
+  background-color: #aaaaaa;
+  position: relative;
+  text-align: center;
+  top: 50px;
+  left: 45%;
+  width: 10%;
+`
+export const TextoBotaoVoltar = styled.h5`
+  color: #000066;
+  position: center;
 `

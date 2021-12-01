@@ -9,6 +9,8 @@ import {
   TextoBotao,
   TextoLicao,
   Botao,
+  BotaoVoltar,
+  TextoBotaoVoltar,
 } from './styles'
 
 interface IProps {
@@ -50,6 +52,9 @@ const MenuSelecaoP: React.FC<IProps> = (props) => {
             <TextoBotao>Iniciar</TextoBotao>
           </Botao>
         </ContainerCorpoAula>
+        <BotaoVoltar onClick={() => props.setPageProva(0)}>
+          <TextoBotaoVoltar>Voltar</TextoBotaoVoltar>
+        </BotaoVoltar>
       </ContainerCorpo>
     </>
   )

@@ -29,8 +29,8 @@ const Home: React.FC = () => {
       {/* <Desafio notaArd={notas}></Desafio> */}
       {/* <Prova notaArd={notas} provaP={0}></Prova> */}
       {/* <ModoLivre notaArd={notas}></ModoLivre> */}
-      <Aula notaArd={notas} aulaA={0} />
-      {/* <MenuPrincipal notaArd={notas} /> */}
+      {/* <Aula notaArd={notas} aulaA={0} /> */}
+      <MenuPrincipal notaArd={notas} />
       {/* <MenuSelecao /> */}
     </Container>
   )

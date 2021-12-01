@@ -104,11 +104,12 @@
     "yarn": "^1.22.5"
   },
   "build": {
-    "appId": "com.github.wirlleyd/dbhelper-tcc",
-    "productName": "DBHelper",
+    "appId": "com.github.luisstelmastchuk/pianohelper-tcc",
+    "productName": "PianoHelper",
     "win": {
       "icon": "appIcon.png"
     },
+
     "directories": {
       "output": "packages"
     },
@@ -118,7 +119,7 @@
       "appIcon.png"
     ],
     "extraFiles": [
-      "resources/*"
+      "resources/**"
     ]
   },
   "config": {
