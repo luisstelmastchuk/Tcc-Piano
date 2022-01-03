@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { NOTAS } from '../../global/constants'
 
 import { TeclasStyle, TeclaTexto, TeclaPStyle, TeclaPTexto } from './styles'
 
 interface ITecla {
-  teclaArd?: string
+  teclaArd?: string[]
   notaNome?: string
   nota?: string
   notaAula?: {
@@ -20,6 +21,13 @@ const TeclasAula: React.FC<ITecla> = (props) => {
   const compararTecla = () => {
     return notaAulaX.some((notaC) => notaC == teclaNota) ? true : false
   }
+
+  useEffect(() => {
+    const audios = NOTAS.filter((nota) =>
+      props.teclaArd.some((tecla) => tecla === nota.name)
+    )
+    audios.forEach((audio) => audio.audio.play())
+  }, [props.teclaArd])
 
   return (
     <>

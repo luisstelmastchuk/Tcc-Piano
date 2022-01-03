@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, Dispatch, SetStateAction, useState } from 'react'
 
-// import { Container } from './styles';
 import Piano from '../../components/Piano'
 import PianoAula from '../../components/PianoAula'
 import Partitura from '../../components/Partitura'
@@ -23,6 +22,7 @@ import {
 interface INota {
   notaArd: string[]
   aulaA: number
+  setPageAulaN: Dispatch<SetStateAction<number>>
 }
 
 const Aula: React.FC<INota> = (props) => {
@@ -52,7 +52,6 @@ const Aula: React.FC<INota> = (props) => {
           setContador(0)
         }
       }
-      // console.log(aula[contador].sections.toString() == NotaArd.toString())
     }
 
     funcaoAula()
@@ -65,10 +64,6 @@ const Aula: React.FC<INota> = (props) => {
       setContador(contador)
     }
   }
-
-  // console.log(aula[contador].sections.toString())
-  // console.log(NotaArd.toString())
-  // console.log({ contador })
 
   return (
     <>
@@ -90,7 +85,7 @@ const Aula: React.FC<INota> = (props) => {
 
       <ContainerFooter>
         <ContainerFooterInterno1>
-          <Botao onClick={() => console.log('teste')}>Parar</Botao>
+          <Botao onClick={() => props.setPageAulaN(0)}>Parar</Botao>
         </ContainerFooterInterno1>
         <ContainerFooterInterno2>
           <Botao onClick={() => funcaoRepetir()}>Repetir</Botao>

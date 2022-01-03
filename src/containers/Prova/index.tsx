@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, Dispatch, SetStateAction, useState } from 'react'
 
 // import { Container } from './styles';
 import Piano from '../../components/Piano'
@@ -23,6 +23,7 @@ import {
 interface INota {
   notaArd: string[]
   provaP: number
+  setPageProvaP: Dispatch<SetStateAction<number>>
 }
 
 var contador = 0
@@ -89,7 +90,7 @@ const Prova: React.FC<INota> = (props) => {
 
       <ContainerFooter>
         <ContainerFooterInterno1>
-          <Botao onClick={() => console.log('teste')}>
+          <Botao onClick={() => props.setPageProvaP(0)}>
             Finalizar Tentativa
           </Botao>
         </ContainerFooterInterno1>

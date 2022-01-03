@@ -5,7 +5,7 @@ import { NOTAS } from '../../global/constants'
 import TeclasAula from '../TeclasAula'
 
 interface ITeclas {
-  teclaArd?: string
+  teclaArd?: string[]
   notaAula?: {
     id: number
     sections: string[]
