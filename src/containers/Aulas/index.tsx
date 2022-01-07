@@ -1,4 +1,5 @@
 import React, { useEffect, Dispatch, SetStateAction, useState } from 'react'
+import { Modal } from 'antd'
 
 import Piano from '../../components/Piano'
 import PianoAula from '../../components/PianoAula'
@@ -30,12 +31,22 @@ const Aula: React.FC<INota> = (props) => {
 
   const [contador, setContador] = useState(0)
 
+  const [visivel, setVisivel] = useState(false)
+
   const [aula, setAula] = useState<
     {
       id: number
       sections: string[]
     }[]
   >(AULAS[props.aulaA])
+
+  const repetir = () => {
+    props.setPageAulaN(0)
+  }
+
+  const cancelar = () => {
+    setVisivel(false)
+  }
 
   useEffect(() => {
     const funcaoAula = async () => {
@@ -49,6 +60,7 @@ const Aula: React.FC<INota> = (props) => {
         if (contador != 5) {
           setContador(contador + 1)
         } else {
+          setVisivel(true)
           setContador(0)
         }
       }
@@ -72,6 +84,20 @@ const Aula: React.FC<INota> = (props) => {
       </ContainerHeader>
 
       <ContainerAula>
+        <Modal
+          title={'Lição Finalizada'}
+          visible={visivel}
+          onOk={repetir}
+          onCancel={cancelar}
+          okText={'Finalizar'}
+          cancelText={'Repetir'}
+        >
+          <p>Parabéns por concluir a Lição</p>
+          <h4>
+            Clique Repetir para recomeçar ou Finalizar para voltar ao menu de
+            seleção.
+          </h4>
+        </Modal>
         <ContainerAulaInterno1>
           <Partitura notaAula={aula[contador]} />
         </ContainerAulaInterno1>

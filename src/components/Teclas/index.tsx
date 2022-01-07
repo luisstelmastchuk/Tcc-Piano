@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import { ConnectionIsNotSetError } from 'typeorm'
 import { NOTAS } from '../../global/constants'
 
 import { TeclasStyle, TeclaTexto, TeclaPStyle, TeclaPTexto } from './styles'
@@ -19,6 +20,8 @@ const Teclas: React.FC<ITecla> = (props) => {
   const teclaNota = props.nota?.toUpperCase()
   const teclaPressionada = props.tecla
   const notaAulaX = props.notaAula.sections
+
+  const [erro, setErro] = useState(0)
 
   const compararTecla = () => {
     return teclaPressionada.some((notaC) => notaC == teclaNota)

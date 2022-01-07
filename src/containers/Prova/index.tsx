@@ -1,6 +1,6 @@
 import React, { useEffect, Dispatch, SetStateAction, useState } from 'react'
+import { Modal } from 'antd'
 
-// import { Container } from './styles';
 import Piano from '../../components/Piano'
 import Partitura from '../../components/Partitura'
 import { PROVAS } from '../../global/constants'
@@ -26,14 +26,12 @@ interface INota {
   setPageProvaP: Dispatch<SetStateAction<number>>
 }
 
-var contador = 0
-var contador2 = 0
-var acerto = 0
-var erro = 0
-var nota = 0
-
 const Prova: React.FC<INota> = (props) => {
   const NotaArd = props.notaArd
+
+  const [contador, setContador] = useState(0)
+  const [erro, setErro] = useState(0)
+  const [visivel, setVisivel] = useState(false)
 
   const [prova, setProva] = useState<
     {
@@ -42,32 +40,44 @@ const Prova: React.FC<INota> = (props) => {
     }[]
   >(PROVAS[props.provaP])
 
-  const funcaoProva = async () => {
-    if (NotaArd.toString() != '' && contador2 != 1) {
-      if (prova[contador].sections.toString() == NotaArd.toString()) {
-        await sleep(300)
-        acerto += 1
-        contador += 1
-      } else {
-        await sleep(300)
-        erro += 1
-        contador += 1
-      }
-      if (contador == 4) {
-        contador2 += 1
-        nota = (acerto - erro) * 10
-        if (nota < 0) nota = 0
-      }
-    }
+  const repetir = () => {
+    props.setPageProvaP(0)
   }
 
-  funcaoProva()
-  console.log(prova[contador].sections.toString())
-  console.log(NotaArd.toString())
-  console.log({ contador })
-  console.log({ acerto })
-  console.log({ erro })
-  console.log({ nota })
+  const cancelar = () => {
+    setVisivel(false)
+  }
+
+  useEffect(() => {
+    const funcaoProva = async () => {
+      if (
+        prova[contador].sections.every((nota) =>
+          NotaArd.some((_notaArd) => _notaArd == nota)
+        ) &&
+        NotaArd.length
+      ) {
+        await sleep(1500)
+        if (contador != 5) {
+          setContador(contador + 1)
+        } else {
+          setVisivel(true)
+          setContador(0)
+        }
+      } else {
+        if (
+          !NotaArd.every((nota) =>
+            prova[contador].sections.some((_notaArd) => _notaArd === nota)
+          ) &&
+          NotaArd.some((_notaArd) => _notaArd != '')
+        ) {
+          await sleep(1500)
+          setErro(erro + 1)
+        }
+      }
+    }
+
+    funcaoProva()
+  }, [NotaArd])
 
   return (
     <>
@@ -76,6 +86,17 @@ const Prova: React.FC<INota> = (props) => {
       </ContainerHeader>
 
       <ContainerProva>
+        <Modal
+          title={'Avaliação Finalizada'}
+          visible={visivel}
+          onOk={repetir}
+          onCancel={cancelar}
+          okText={'Finalizar'}
+          cancelText={'Repetir'}
+        >
+          <p>Você cometeu {erro} erros</p>
+          <h2>Clique em Finalizar ou Repetir</h2>
+        </Modal>
         <ContainerProvaInterno1>
           <ContainerTimer></ContainerTimer>
           <ContainerScore></ContainerScore>

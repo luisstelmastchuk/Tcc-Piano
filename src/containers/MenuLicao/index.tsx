@@ -15,7 +15,6 @@ import {
 } from './styles'
 
 interface IProps {
-  isActived?: boolean
   notaArd: string[]
   setPage: Dispatch<SetStateAction<number>>
 }
