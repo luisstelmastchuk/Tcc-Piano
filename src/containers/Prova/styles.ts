@@ -24,7 +24,7 @@ export const ContainerProvaInterno1 = styled.div`
   display: flex;
   flex-direction: row;
 `
-export const ContainerTimer = styled.div`
+export const ContainerScore = styled.div`
   position: relative;
   width: 25%;
   height: 40px;
@@ -33,7 +33,7 @@ export const ContainerTimer = styled.div`
   border: 2px solid black;
   background-color: white;
 `
-export const ContainerScore = styled.div`
+export const ContainerErro = styled.div`
   position: relative;
   width: 25%;
   height: 40px;

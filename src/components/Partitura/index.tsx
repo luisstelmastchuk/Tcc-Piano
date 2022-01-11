@@ -99,8 +99,6 @@ const Partitura: React.FC<INota> = (props) => {
 
   funcaoAula()
 
-  // console.log(notaA)
-
   return (
     <PartituraStyle>
       <PartituraInterno2>
@@ -129,7 +127,7 @@ const Partitura: React.FC<INota> = (props) => {
         </F1>
         ]
         <GF1 isActived={notaA[18]}>
-          <DF01 isActived={notaA[1]}></DF01>
+          <DF01 isActived={notaA[18]}></DF01>
           <GFs1 isActived={notaA[18]}>#</GFs1>
         </GF1>
       </PartituraInterno2>

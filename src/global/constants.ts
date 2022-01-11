@@ -219,14 +219,31 @@ const PROVAS = [
     { id: 6, sections: ['G0', 'C1', 'GF1'] },
   ],
 ]
-
 const DESAFIO = [
   { id: 1, sections: ['C0'] },
   { id: 2, sections: ['DF0'] },
-  { id: 3, sections: ['B0'] },
+  { id: 3, sections: ['D0'] },
   { id: 4, sections: ['EF0'] },
-  { id: 5, sections: ['C0'] },
-  { id: 6, sections: ['G0', 'C1'] },
+  { id: 5, sections: ['E0'] },
+  { id: 6, sections: ['F0'] },
+  { id: 7, sections: ['GF0'] },
+  { id: 8, sections: ['G0'] },
+  { id: 9, sections: ['AF0'] },
+  { id: 10, sections: ['A0'] },
+  { id: 11, sections: ['BF0'] },
+  { id: 12, sections: ['B0'] },
+  { id: 13, sections: ['C1'] },
+  { id: 14, sections: ['DF1'] },
+  { id: 15, sections: ['D1'] },
+  { id: 16, sections: ['EF1'] },
+  { id: 17, sections: ['E1'] },
+  { id: 18, sections: ['F1'] },
+  { id: 19, sections: ['GF1'] },
+  { id: 20, sections: ['G1'] },
+  { id: 21, sections: ['AF1'] },
+  { id: 22, sections: ['A1'] },
+  { id: 23, sections: ['BF1'] },
+  { id: 24, sections: ['B1'] },
 ]
 
 export { NOTAS, AULAS, PROVAS, DESAFIO }

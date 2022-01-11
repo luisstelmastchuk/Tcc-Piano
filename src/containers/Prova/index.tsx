@@ -16,7 +16,7 @@ import {
   ContainerProvaInterno2,
   ContainerProvaInterno3,
   ContainerFooterInterno1,
-  ContainerTimer,
+  ContainerErro,
   ContainerScore,
 } from './styles'
 
@@ -31,6 +31,7 @@ const Prova: React.FC<INota> = (props) => {
 
   const [contador, setContador] = useState(0)
   const [erro, setErro] = useState(0)
+  const [nota, setNota] = useState(0)
   const [visivel, setVisivel] = useState(false)
 
   const [prova, setProva] = useState<
@@ -59,9 +60,14 @@ const Prova: React.FC<INota> = (props) => {
         await sleep(1500)
         if (contador != 5) {
           setContador(contador + 1)
+          setNota(nota + 10)
         } else {
+          setNota(nota + 10)
           setVisivel(true)
           setContador(0)
+          await sleep(4000)
+          setNota(0)
+          setErro(0)
         }
       } else {
         if (
@@ -72,6 +78,11 @@ const Prova: React.FC<INota> = (props) => {
         ) {
           await sleep(1500)
           setErro(erro + 1)
+          if (nota < 0) {
+            setNota(0)
+          } else {
+            setNota(nota - 1)
+          }
         }
       }
     }
@@ -94,12 +105,14 @@ const Prova: React.FC<INota> = (props) => {
           okText={'Finalizar'}
           cancelText={'Repetir'}
         >
-          <p>Você cometeu {erro} erros</p>
+          <p>
+            Você cometeu {erro} erros. Sua nota é {nota}
+          </p>
           <h2>Clique em Finalizar ou Repetir</h2>
         </Modal>
         <ContainerProvaInterno1>
-          <ContainerTimer></ContainerTimer>
-          <ContainerScore></ContainerScore>
+          <ContainerScore>Nota: {nota}</ContainerScore>
+          <ContainerErro>Erros: {erro}</ContainerErro>
         </ContainerProvaInterno1>
         <ContainerProvaInterno2>
           <Partitura notaAula={prova[contador]} />

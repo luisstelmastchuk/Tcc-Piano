@@ -18,8 +18,7 @@ import {
   ContainerFooterInterno2,
   ContainerFooterInterno1,
   ContainerTentativas,
-  ContainerScore,
-  ContainerTimer,
+  ContainerErro,
 } from './styles'
 
 interface INota {
@@ -31,6 +30,8 @@ const Desafio: React.FC<INota> = (props) => {
   const NotaArd = props.notaArd
 
   const [contador, setContador] = useState(0)
+  const [erro, setErro] = useState(0)
+  const [rand, setRand] = useState(Math.floor(Math.random() * 23))
 
   const [desafio, setDesafio] = useState<
     {
@@ -39,19 +40,41 @@ const Desafio: React.FC<INota> = (props) => {
     }[]
   >(DESAFIO)
 
+  const reiniciar = () => {
+    setContador(0)
+    setErro(0)
+    setRand(Math.floor(Math.random() * 23))
+  }
+
   useEffect(() => {
     const funcaoDesafio = async () => {
-      if (desafio[contador].sections.toString() == NotaArd.toString()) {
+      if (
+        desafio[rand].sections.every((nota) =>
+          NotaArd.some((_notaArd) => _notaArd == nota)
+        ) &&
+        NotaArd.length
+      ) {
         await sleep(500)
-        if (contador != 6) {
-          setContador(contador + 1)
-        } else {
-          setContador(contador)
+        setContador(contador + 1)
+        randomica()
+      } else {
+        if (
+          !NotaArd.every((nota) =>
+            desafio[contador].sections.some((_notaArd) => _notaArd === nota)
+          ) &&
+          NotaArd.some((_notaArd) => _notaArd != '')
+        ) {
+          await sleep(800)
+          setErro(erro + 1)
         }
       }
-      // console.log(aula[contador].sections.toString() == NotaArd.toString())
     }
 
+    const randomica = async () => {
+      setRand(Math.floor(Math.random() * 23))
+    }
+
+    console.log(erro)
     funcaoDesafio()
   }, [NotaArd])
 
@@ -63,21 +86,20 @@ const Desafio: React.FC<INota> = (props) => {
 
       <ContainerDesafio>
         <ContainerDesafioInterno1>
-          <ContainerTentativas></ContainerTentativas>
-          <ContainerTimer></ContainerTimer>
-          <ContainerScore></ContainerScore>
+          <ContainerTentativas>Notas:{contador}</ContainerTentativas>
+          <ContainerErro>Erros:{erro}</ContainerErro>
         </ContainerDesafioInterno1>
         <ContainerDesafioInterno2>
-          <Partitura notaAula={desafio[contador]} />
+          <Partitura notaAula={desafio[rand]} />
         </ContainerDesafioInterno2>
         <ContainerDesafioInterno3>
-          <Piano tecla={NotaArd} notaAula={desafio[contador]} />
+          <Piano tecla={NotaArd} notaAula={desafio[rand]} />
         </ContainerDesafioInterno3>
       </ContainerDesafio>
 
       <ContainerFooter>
         <ContainerFooterInterno1>
-          <Botao onClick={() => console.log('teste')}>Reiniciar</Botao>
+          <Botao onClick={() => reiniciar()}>Reiniciar</Botao>
         </ContainerFooterInterno1>
         <ContainerFooterInterno2>
           <Botao onClick={() => props.setPage(0)}>
