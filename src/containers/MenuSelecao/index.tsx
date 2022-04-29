@@ -51,7 +51,7 @@ const MenuSelecao: React.FC<IProps> = (props) => {
               </Botao>
             </ContainerCorpoAula>
             <ContainerCorpoAula>
-              <TextoLicao>Lição 4 : Primeira Música Do Ré Mi Fá</TextoLicao>
+              <TextoLicao>Lição 4 : Conhecendo o piano parte 4</TextoLicao>
               <Botao onClick={() => setAulaN(4)}>
                 <TextoBotao>Iniciar</TextoBotao>
               </Botao>

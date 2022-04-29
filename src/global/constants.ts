@@ -186,15 +186,6 @@ const AULAS = [
 const PROVAS = [
   [],
   [
-    { id: 1, sections: ['C0'] },
-    { id: 2, sections: ['DF1'] },
-    { id: 3, sections: ['D0'] },
-    { id: 4, sections: ['EF0'] },
-    { id: 5, sections: ['E0'] },
-    { id: 6, sections: ['F0'] },
-  ],
-
-  [
     { id: 1, sections: ['G0', 'C1', 'A1'] },
     { id: 2, sections: ['G1', 'DF1', 'C1'] },
     { id: 3, sections: ['B1', 'EF1', 'AF1'] },
