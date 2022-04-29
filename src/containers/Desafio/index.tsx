@@ -74,7 +74,6 @@ const Desafio: React.FC<INota> = (props) => {
       setRand(Math.floor(Math.random() * 23))
     }
 
-    console.log(erro)
     funcaoDesafio()
   }, [NotaArd])
 

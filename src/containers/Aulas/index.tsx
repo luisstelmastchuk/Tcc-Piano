@@ -80,7 +80,7 @@ const Aula: React.FC<INota> = (props) => {
   return (
     <>
       <ContainerHeader>
-        <Texto>Lição 1</Texto>
+        <Texto>Lição {props.aulaA}</Texto>
       </ContainerHeader>
 
       <ContainerAula>

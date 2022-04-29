@@ -93,7 +93,7 @@ const Prova: React.FC<INota> = (props) => {
   return (
     <>
       <ContainerHeader>
-        <Texto>Avaliação 1</Texto>
+        <Texto>Avaliação {props.provaP}</Texto>
       </ContainerHeader>
 
       <ContainerProva>
