@@ -120,7 +120,7 @@ const Partitura: React.FC<INota> = (props) => {
           <B11 isActived={notaA[23]}></B11>
         </B1>
       </PartituraInterno2>
-      <PartituraInterno2>
+      <PartituraInterno>
         <E1 isActived={notaA[16]}></E1>
         <F1 isActived={notaA[17]}>
           <DF01 isActived={notaA[17]}></DF01>
@@ -130,7 +130,7 @@ const Partitura: React.FC<INota> = (props) => {
           <DF01 isActived={notaA[18]}></DF01>
           <GFs1 isActived={notaA[18]}>#</GFs1>
         </GF1>
-      </PartituraInterno2>
+      </PartituraInterno>
       <PartituraInterno>
         <C1 isActived={notaA[12]}></C1>
         <DF1 isActived={notaA[13]}>

@@ -31,6 +31,7 @@ const Prova: React.FC<INota> = (props) => {
 
   const [contador, setContador] = useState(0)
   const [erro, setErro] = useState(0)
+  const [erro2, setErro2] = useState(0)
   const [nota, setNota] = useState(0)
   const [visivel, setVisivel] = useState(false)
 
@@ -41,13 +42,17 @@ const Prova: React.FC<INota> = (props) => {
     }[]
   >(PROVAS[props.provaP])
 
-  const repetir = () => {
+  const repetir = async () => {
     props.setPageProvaP(0)
   }
 
-  const cancelar = () => {
+  const cancelar = async () => {
     setVisivel(false)
+    setNota(0)
+    setErro(0)
   }
+
+  const zeranota = async () => {}
 
   useEffect(() => {
     const funcaoProva = async () => {
@@ -60,14 +65,13 @@ const Prova: React.FC<INota> = (props) => {
         await sleep(1500)
         if (contador != 5) {
           setContador(contador + 1)
-          setNota(nota + 10)
+          setNota(nota - erro2 + 10)
+          setErro2(0)
         } else {
-          setNota(nota + 10)
+          setNota(nota - erro2 + 10)
+          setErro2(0)
           setVisivel(true)
           setContador(0)
-          await sleep(4000)
-          setNota(0)
-          setErro(0)
         }
       } else {
         if (
@@ -78,7 +82,8 @@ const Prova: React.FC<INota> = (props) => {
         ) {
           await sleep(1500)
           setErro(erro + 1)
-          if (nota < 0) {
+          if (nota <= 0) {
+            setErro2(erro2 + 1)
             setNota(0)
           } else {
             setNota(nota - 1)
